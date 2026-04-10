@@ -30,20 +30,37 @@
 
 ## 🏗️ Architecture
 
-src/
-├── @types/          # TypeScript definitions
-├── components/      # Reusable UI components
-├── hooks/           # Custom hooks (TanStack Query)
-├── routes/          # Navigation (Stack + Bottom Tabs)
-├── screens/         # App screens
-│   ├── Welcome/     # Landing screen
-│   ├── Dashboard/   # Live fleet overview
-│   ├── MapLive/     # Real-time map
-│   └── Vehicle/     # Vehicle details + chart
-├── services/        # Firebase config
-├── store/           # Global state (Zustand)
-├── theme/           # Design system (colors, fonts)
-└── utils/           # Helpers and validators
+## 🏗️ Architecture
+
+```
+FleetPulse/
+├── docs/                     # Screenshots do app
+├── src/
+│   ├── @types/               # Tipagens TypeScript
+│   ├── assets/               # Imagens e animações
+│   ├── components/
+│   │   └── AlertBanner/      # Banner de alerta de velocidade
+│   ├── hooks/
+│   │   ├── useAuth.ts        # Autenticação Firebase
+│   │   └── useTracking.ts    # Rastreamento em tempo real
+│   ├── routes/
+│   │   └── index.tsx         # Navegação Stack + Tabs
+│   ├── screens/
+│   │   ├── Dashboard/        # Painel principal ao vivo
+│   │   ├── Login/            # Autenticação
+│   │   ├── MapLive/          # Mapa em tempo real
+│   │   ├── Profile/          # Perfil do usuário
+│   │   ├── Vehicle/          # Detalhes + gráfico
+│   │   └── Welcome/          # Tela inicial
+│   ├── services/
+│   │   └── firebaseConfig.ts # Firebase configurado
+│   ├── store/
+│   │   └── useVehicleStore.ts # Estado global Zustand
+│   └── theme/
+│       └── colors.ts         # Design system de cores
+├── App.tsx                   # Entry point
+└── README.md                 # Documentação
+```
 
 ---
 
