@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import WelcomeScreen from '../screens/Welcome';
+import LoginScreen from '../screens/Login';
 import DashboardScreen from '../screens/Dashboard';
 import MapLiveScreen from '../screens/MapLive';
 import VehicleScreen from '../screens/Vehicle';
@@ -47,6 +48,7 @@ export default function Routes() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="App" component={AppTabs} />
       </Stack.Navigator>
     </NavigationContainer>

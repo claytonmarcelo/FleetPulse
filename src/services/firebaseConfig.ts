@@ -4,13 +4,12 @@ import { getFirestore } from 'firebase/firestore';
 import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: 'SUA_API_KEY',
-  authDomain: 'SEU_PROJECT.firebaseapp.com',
-  databaseURL: 'https://SEU_PROJECT.firebaseio.com',
-  projectId: 'SEU_PROJECT_ID',
-  storageBucket: 'SEU_PROJECT.appspot.com',
-  messagingSenderId: 'SEU_SENDER_ID',
-  appId: 'SEU_APP_ID',
+  apiKey: "AIzaSyAYUJl-iuIySWw9y5qoKw_6n4mAKwnV4c0",
+  authDomain: "fleetpulse-3698a.firebaseapp.com",
+  projectId: "fleetpulse-3698a",
+  storageBucket: "fleetpulse-3698a.firebasestorage.app",
+  messagingSenderId: "397513253585",
+  appId: "1:397513253585:web:c0bc7a0d5d4a3dd5639bf0"
 };
 
 const app = initializeApp(firebaseConfig);

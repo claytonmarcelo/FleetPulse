@@ -41,13 +41,16 @@ export default function WelcomeScreen({ navigation }: any) {
       <View style={styles.buttons}>
         <TouchableOpacity
           style={styles.btnPrimary}
-          onPress={() => navigation.navigate('App')}
+          onPress={() => navigation.navigate('Login')}
         >
           <Text style={styles.btnPrimaryText}>Acessar painel</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btnSecondary}>
-          <Text style={styles.btnSecondaryText}>Criar conta</Text>
+        <TouchableOpacity
+          style={styles.btnSecondary}
+          onPress={() => navigation.navigate('Login')}
+        >
+          <Text style={styles.btnSecondaryText}>Criar conta grátis</Text>
         </TouchableOpacity>
       </View>
     </View>
