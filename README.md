@@ -30,36 +30,35 @@
 
 ## 🏗️ Architecture
 
-## 🏗️ Architecture
-
 ```
 FleetPulse/
-├── docs/                     # Screenshots do app
+├── docs/
 ├── src/
-│   ├── @types/               # Tipagens TypeScript
-│   ├── assets/               # Imagens e animações
+│   ├── @types/
+│   ├── assets/
 │   ├── components/
-│   │   └── AlertBanner/      # Banner de alerta de velocidade
+│   │   └── AlertBanner/
 │   ├── hooks/
-│   │   ├── useAuth.ts        # Autenticação Firebase
-│   │   └── useTracking.ts    # Rastreamento em tempo real
+│   │   ├── useAuth.ts
+│   │   └── useTracking.ts
 │   ├── routes/
-│   │   └── index.tsx         # Navegação Stack + Tabs
+│   │   └── index.tsx
 │   ├── screens/
-│   │   ├── Dashboard/        # Painel principal ao vivo
-│   │   ├── Login/            # Autenticação
-│   │   ├── MapLive/          # Mapa em tempo real
-│   │   ├── Profile/          # Perfil do usuário
-│   │   ├── Vehicle/          # Detalhes + gráfico
-│   │   └── Welcome/          # Tela inicial
+│   │   ├── Dashboard/
+│   │   ├── Login/
+│   │   ├── MapLive/
+│   │   ├── Profile/
+│   │   ├── Vehicle/
+│   │   └── Welcome/
 │   ├── services/
-│   │   └── firebaseConfig.ts # Firebase configurado
+│   │   └── firebaseConfig.ts
 │   ├── store/
-│   │   └── useVehicleStore.ts # Estado global Zustand
+│   │   └── useVehicleStore.ts
 │   └── theme/
-│       └── colors.ts         # Design system de cores
-├── App.tsx                   # Entry point
-└── README.md                 # Documentação
+│       └── colors.ts
+├── App.tsx
+└── README.md
+```
 ```
 
 ---
