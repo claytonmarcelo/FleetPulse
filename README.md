@@ -94,7 +94,7 @@ FIREBASE_PROJECT_ID=your_project_id
 ## 👨‍💻 Author
 
 **Clayton Marcelo**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/claytonmarcelo)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/clayton-marcelo-270602352/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/claytonmarcelo)
 
 ---
