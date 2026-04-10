@@ -117,5 +117,4 @@ FIREBASE_PROJECT_ID=your_project_id
 
 ## 📄 License
 
-MIT License © 2026 Clayton Marcelo
-Depois crie a pasta docs na raiz e coloque os prints das telas lá com os nomes welcome.png, dashboard.png, map.png e vehicle.png.
+MIT License © 2026 Clayton Marcelo.
