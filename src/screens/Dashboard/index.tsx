@@ -3,8 +3,11 @@ import {
   View, Text, StyleSheet, ScrollView,
   TouchableOpacity, StatusBar,
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../theme/colors';
 import { useVehicleStore, Vehicle } from '../../store/useVehicleStore';
+import { useAuth } from '../../hooks/useAuth';
+import AlertBanner from '../../components/AlertBanner';
 
 const mockVehicles: Vehicle[] = [
   { id: '1', name: 'Caminhão 01', driver: 'Carlos Silva', speed: 87, latitude: -23.55, longitude: -46.63, status: 'online', updatedAt: new Date() },
@@ -61,44 +64,42 @@ function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
   );
 }
 
-export default function DashboardScreen() {
+export default function DashboardScreen({ navigation }: any) {
   const { vehicles, setVehicles } = useVehicleStore();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     setVehicles(mockVehicles);
-
-    const interval = setInterval(() => {
-      setVehicles(
-        mockVehicles.map((v) => ({
-          ...v,
-          speed: v.status === 'online'
-            ? Math.floor(Math.random() * 40) + 60
-            : v.status === 'alert'
-            ? Math.floor(Math.random() * 30) + 100
-            : 0,
-          updatedAt: new Date(),
-        }))
-      );
-    }, 2000);
-
-    return () => clearInterval(interval);
   }, []);
+
+  const handleLogout = async () => {
+    await logout();
+    navigation.replace('Welcome');
+  };
 
   const online = vehicles.filter((v) => v.status === 'online').length;
   const alerts = vehicles.filter((v) => v.status === 'alert').length;
 
   return (
     <View style={styles.container}>
+      <AlertBanner />
       <StatusBar barStyle="light-content" />
 
       <View style={styles.header}>
         <View>
           <Text style={styles.headerTitle}>FleetPulse</Text>
-          <Text style={styles.headerSub}>Painel em tempo real</Text>
+          <Text style={styles.headerSub}>
+            {user?.email ?? 'Painel em tempo real'}
+          </Text>
         </View>
-        <View style={styles.liveTag}>
-          <View style={styles.liveDot} />
-          <Text style={styles.liveText}>AO VIVO</Text>
+        <View style={styles.headerRight}>
+          <View style={styles.liveTag}>
+            <View style={styles.liveDot} />
+            <Text style={styles.liveText}>AO VIVO</Text>
+          </View>
+          <TouchableOpacity onPress={handleLogout} style={styles.logoutBtn}>
+            <Ionicons name="log-out-outline" size={22} color={colors.danger} />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -119,7 +120,7 @@ export default function DashboardScreen() {
         </View>
       </View>
 
-      <Text style={styles.sectionTitle}>Veículos</Text>
+      <Text style={styles.sectionTitle}>VEÍCULOS</Text>
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {vehicles.map((v) => (
@@ -134,10 +135,12 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background, padding: 20, paddingTop: 52 },
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 },
   headerTitle: { color: colors.text, fontSize: 22, fontWeight: 'bold' },
-  headerSub: { color: colors.textMuted, fontSize: 13, marginTop: 2 },
+  headerSub: { color: colors.textMuted, fontSize: 12, marginTop: 2 },
+  headerRight: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   liveTag: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.danger + '22', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 20 },
   liveDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: colors.danger, marginRight: 6 },
   liveText: { color: colors.danger, fontSize: 11, fontWeight: 'bold', letterSpacing: 1 },
+  logoutBtn: { padding: 6 },
   summary: { flexDirection: 'row', backgroundColor: colors.card, borderRadius: 14, padding: 18, marginBottom: 24, justifyContent: 'space-around', alignItems: 'center' },
   summaryItem: { alignItems: 'center' },
   summaryNumber: { color: colors.text, fontSize: 26, fontWeight: 'bold' },

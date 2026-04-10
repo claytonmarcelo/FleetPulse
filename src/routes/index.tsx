@@ -8,6 +8,7 @@ import LoginScreen from '../screens/Login';
 import DashboardScreen from '../screens/Dashboard';
 import MapLiveScreen from '../screens/MapLive';
 import VehicleScreen from '../screens/Vehicle';
+import ProfileScreen from '../screens/Profile';
 import { colors } from '../theme/colors';
 
 const Stack = createNativeStackNavigator();
@@ -31,6 +32,7 @@ function AppTabs() {
             Dashboard: 'speedometer-outline',
             Mapa: 'map-outline',
             Veículo: 'car-outline',
+            Perfil: 'person-outline',
           };
           return <Ionicons name={icons[route.name] as any} size={size} color={color} />;
         },
@@ -39,6 +41,7 @@ function AppTabs() {
       <Tab.Screen name="Dashboard" component={DashboardScreen} />
       <Tab.Screen name="Mapa" component={MapLiveScreen} />
       <Tab.Screen name="Veículo" component={VehicleScreen} />
+      <Tab.Screen name="Perfil" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
